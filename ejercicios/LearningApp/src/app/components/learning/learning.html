@@ -1,31 +1,38 @@
-<div>
-    <div>
-        <h2>CURSO</h2>
-        <ul>
-            <li>ID: {{ course.id }}</li>
-            <li>Nombre: {{ course.name }}</li>
-        </ul>
+<div class="container my-5">
+    <div class="card shadow rounded-3 px-4">
+        <div class="card-header bg-primary text-white rounded-top-3">
+            <h2 class="mb-0">CURSO</h2>
+        </div>
 
-        <h3>ESTUDIANTES</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>CÉDULA</th>
-                    <th>NOMBRE</th>
-                    <th>APELLIDO</th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (student of course.students; track $index) {
-                <tr>
-                    <td>{{ student.id }}</td>
-                    <td>{{ student.identification }}</td>
-                    <td>{{ student.name }}</td>
-                    <td>{{ student.surname }}</td>
-                </tr>
-                }
-            </tbody>
-        </table>
+        <div class="card-body">
+            <ul class="list-group mb-4">
+                <li class="list-group-item"><strong>ID:</strong> {{ course.id }}</li>
+                <li class="list-group-item"><strong>Nombre:</strong> {{ course.name }}</li>
+            </ul>
+
+            <h4 class="mb-3">Estudiantes inscritos</h4>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>CEDULA</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (student of course.students; track $index) {
+                        <tr>
+                            <td>{{ student.id }}</td>
+                            <td>{{ student.identification }}</td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.surname }}</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
